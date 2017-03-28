@@ -4,24 +4,26 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
-    private float agility;//Acceleration speed
+    private float agility;//Acceleration[100%] | Deceleration[50%] _speed
     private float legStrength;//Jump height + movement speed (jump height = 33.3...% legStrength | walk speed = 50% legStrength | run speed = 100% legStrength)
 
     private float activateRunTimer;
     private bool running;
     private float speed;
+    private bool moving;
 
     private Rigidbody body;
 
     void Start ()
     {
         //Statistics
-        agility = 5;
+        agility = 50;
         legStrength = 10;
 
         //Misc
         activateRunTimer = 0;
         running = false;
+        moving = false;
 
         //Main_Appliments
         gameObject.tag = "Player";
@@ -42,12 +44,12 @@ public class PlayerScript : MonoBehaviour
         RayCasts();
         timers();
 
-        if (Input.anyKey)
+        if(Input.anyKey)
         {
             keyDetection();
-            if (Input.GetKeyDown(KeyCode.W))
+            if(Input.GetKeyDown(KeyCode.W))
             {
-                if (activateRunTimer > 0)
+                if(activateRunTimer > 0)
                 {
                     running = true;
                 }else{
@@ -55,9 +57,11 @@ public class PlayerScript : MonoBehaviour
                     running = false;
                 }
             }
+        }else{
+            moving = false;
         }
 
-        if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyDown(KeyCode.S))
+        if(Input.GetKeyUp(KeyCode.W) || Input.GetKeyDown(KeyCode.S))
         {
             running = false;
         }
@@ -74,6 +78,20 @@ public class PlayerScript : MonoBehaviour
             {
                 duelVelocity[i] = -speed;
             }
+
+            if(!moving && Physics.Raycast(body.position, -transform.up, 1, 1))
+            {
+                var deceleration = (agility/2)*Time.deltaTime;
+                if(duelVelocity[i] - deceleration > 0)
+                {
+                    duelVelocity[i] -= deceleration;
+                }else if(duelVelocity[i] + deceleration < 0)
+                {
+                    duelVelocity[i] += deceleration;
+                }else{
+                    duelVelocity[i] = 0;
+                }
+            }
         }
 
         body.velocity = new Vector3(duelVelocity[0], body.velocity.y, duelVelocity[1]);
@@ -84,22 +102,22 @@ public class PlayerScript : MonoBehaviour
     private void keyDetection()
     {
         speed = legStrength/2;
-        if (running)
+        if(running)
             speed = legStrength;
 
-        float acceleration = speed * (agility * Time.deltaTime);
+        var acceleration = agility * Time.deltaTime;
 
-        if (Input.GetKey(KeyCode.W))
-            body.velocity += transform.forward * acceleration;
+        if(Input.GetKey(KeyCode.W))
+            body.velocity += new Vector3(Mathf.Sin(this.transform.eulerAngles.y*Mathf.PI/180), 0, Mathf.Cos(this.transform.eulerAngles.y*Mathf.PI/180))*acceleration; moving = true;
 
         if(Input.GetKey(KeyCode.A))
-            body.velocity += -transform.right * acceleration;
+            body.velocity += -transform.right * acceleration; moving = true;
 
         if(Input.GetKey(KeyCode.S))
-            body.velocity += -transform.forward * acceleration;
+            body.velocity += -transform.forward * acceleration; moving = true;
 
-        if (Input.GetKey(KeyCode.D))
-            body.velocity += transform.right * acceleration;
+        if(Input.GetKey(KeyCode.D))
+            body.velocity += transform.right * acceleration; moving = true;
 
         if(Input.GetKeyDown(KeyCode.Space))
             if(Physics.Raycast(body.position, -transform.up, 1, 1))
