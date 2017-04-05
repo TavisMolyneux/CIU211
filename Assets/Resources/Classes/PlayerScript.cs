@@ -36,7 +36,7 @@ public class PlayerScript : MonoBehaviour
         body = gameObject.GetComponent<Rigidbody>();
 
         ///Manual_Static-Initialization
-        Camera.init();
+		CameraScript.init();
     }
 
     void Update()
