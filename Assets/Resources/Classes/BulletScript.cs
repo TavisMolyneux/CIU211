@@ -8,10 +8,15 @@ public class BulletScript : MonoBehaviour
     {
         gameObject.AddComponent<Rigidbody>();
         gameObject.GetComponent<Rigidbody>().AddForce(transform.forward*250, ForceMode.VelocityChange);
-        //Destroy(gameObject, 1);
+        Destroy(gameObject, 1);
 	}
 	void Update ()
     {
 		
 	}
+
+    void OnCollisionEnter()
+    {
+        Destroy(gameObject);
+    }
 }

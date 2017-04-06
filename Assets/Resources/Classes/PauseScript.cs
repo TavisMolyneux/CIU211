@@ -29,8 +29,15 @@ public class PauseScript : MonoBehaviour {
 		PauseActive = !PauseActive;
 		GameObject Controller = GameObject.FindGameObjectWithTag ("Player");
 		Controller.GetComponent<PlayerScript> ().enabled = PauseActive;
-		GameObject.FindObjectOfType<Camera>().GetComponent<Camera>().enabled = PauseActive;
-		PausePanel.SetActive (!PauseActive);
+        GameObject.FindObjectOfType<Camera>().GetComponent<Camera>().enabled = PauseActive;
+
+        if (!PauseActive)
+        {
+            Cursor.visible = true;
+        }else{
+            Cursor.visible = false;
+        }
+        PausePanel.SetActive(!PauseActive);
 	}
 
 	public void quitfunction ()
