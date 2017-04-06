@@ -23,7 +23,7 @@ public class GunScript : MonoBehaviour
 
     void Update()
     {
-        gameObject.transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, GameObject.FindObjectOfType<CameraScript>().gameObject.transform.eulerAngles.x);
+        gameObject.transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, GameObject.FindObjectOfType<Camera>().gameObject.transform.eulerAngles.x);
         if (maxTimer > 0)
         {
             loaded = false;
@@ -35,7 +35,7 @@ public class GunScript : MonoBehaviour
         if (fire && loaded)
         {
             GameObject bullet = Instantiate(prefab, transform.position, transform.parent.rotation) as GameObject;
-            bullet.transform.eulerAngles += new Vector3(GameObject.FindObjectOfType<CameraScript>().gameObject.transform.eulerAngles.x, 0, 0);
+            bullet.transform.eulerAngles += new Vector3(GameObject.FindObjectOfType<Camera>().gameObject.transform.eulerAngles.x, 0, 0);
             //offSet = gameObject.transform.FindChild("Tip").transform.localToWorldMatrix*gameObject.transform.FindChild("Tip").transform.position;
             //Debug.Log(offSet);
             bullet.transform.position += offSet -transform.right*0.5f;

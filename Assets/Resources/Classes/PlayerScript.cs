@@ -38,7 +38,7 @@ public class PlayerScript : MonoBehaviour
         gun = gameObject.transform.FindChild("Gun").gameObject;
 
         ///Manual_Static-Initialization
-		CameraScript.init();
+		Camera.init();
     }
 
     void Update()
