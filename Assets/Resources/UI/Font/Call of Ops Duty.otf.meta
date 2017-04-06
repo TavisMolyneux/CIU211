@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: c2904d94e1a9ead4081e7fc10b086edb
+timeCreated: 1491456462
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Call Of Ops Duty
+  fontNames:
+  - Call Of Ops Duty
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
