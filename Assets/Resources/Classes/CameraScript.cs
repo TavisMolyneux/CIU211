@@ -12,7 +12,7 @@ public class CameraScript: MonoBehaviour
 
     public static void init()
     {
-        Cursor.visible = false;// Thanks, to whom ever solved this?
+        Cursor.visible = false;
         player = GameObject.FindGameObjectWithTag("Player");
     }
 	
