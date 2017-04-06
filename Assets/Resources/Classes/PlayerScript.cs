@@ -13,6 +13,7 @@ public class PlayerScript : MonoBehaviour
     private bool moving;
 
     private Rigidbody body;
+    private GameObject gun;
 
     void Start ()
     {
@@ -34,6 +35,7 @@ public class PlayerScript : MonoBehaviour
 
         //Component References
         body = gameObject.GetComponent<Rigidbody>();
+        gun = gameObject.transform.FindChild("Gun").gameObject;
 
         ///Manual_Static-Initialization
 		CameraScript.init();
@@ -44,7 +46,15 @@ public class PlayerScript : MonoBehaviour
         RayCasts();
         timers();
 
-        if(Input.anyKey)
+        if (Input.GetMouseButtonDown(0))
+        {
+            gun.GetComponent<GunScript>().fire = true;
+        }else if (Input.GetMouseButtonUp(0))
+        {
+            gun.GetComponent<GunScript>().fire = false;
+        }
+
+        if (Input.anyKey)
         {
             keyDetection();
             if(Input.GetKeyDown(KeyCode.W))
