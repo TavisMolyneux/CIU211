@@ -125,7 +125,7 @@ public class GunScript : MonoBehaviour
 
             GameObject.Find("UICANVAS").transform.FindChild("HuD (1)").FindChild("Mag Ammo").GetComponent<Text>().text = ammoClip.ToString();
 
-            Debug.Log((fireRate / (1 + handling / damage)) / 4);
+            //Debug.Log((fireRate / (1 + handling / damage)) / 4);
         }
 
         if (handling > 0)

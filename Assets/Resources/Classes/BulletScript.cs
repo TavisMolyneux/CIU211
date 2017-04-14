@@ -7,11 +7,12 @@ public class BulletScript : MonoBehaviour
     public float damage;
     public float velocity;
     private float gravTimer = 0.5f;
+    private Vector3 oldPos;
 
 	void Start ()
     {
         gameObject.GetComponent<Rigidbody>().useGravity = false;
-        Destroy(gameObject, 5);
+        Destroy(gameObject, 1);
     }
 
     public void init()
@@ -22,7 +23,21 @@ public class BulletScript : MonoBehaviour
 
 	void Update ()
     {
-        if(gravTimer > 0)
+        int spawnCounter = 0;
+        while (spawnCounter < Vector3.Distance(transform.position, oldPos)/5)
+        {
+            GameObject vectorParticle = Instantiate(Resources.Load("Prefabs/3DParticle"), gameObject.transform.position + transform.up*spawnCounter*5, transform.rotation) as GameObject;
+            vectorParticle.transform.localScale = new Vector3(vectorParticle.transform.localScale.x, 5, vectorParticle.transform.localScale.z);
+            /*if(spawnCounter+1 >= Vector3.Distance(transform.position, oldPos) / 5)
+            {
+                vectorParticle.transform.localScale = new Vector3(vectorParticle.transform.localScale.x, 2.5f, vectorParticle.transform.localScale.z);
+                vectorParticle.transform.position -= transform.up * 2.5f;
+            }*/
+            spawnCounter++;
+        }
+        oldPos = transform.position;
+
+        if (gravTimer > 0)
         {
             gravTimer -= Time.deltaTime;
 
