@@ -22,9 +22,15 @@ public class GunScript : MonoBehaviour
     private GameObject crossHair;
     private bool reloading;
     private float handling;
+    public Vector3 originAngle;
+    private Vector3 originPos;
+    private Vector3 offsetAngle;
+    private Vector3 offsetCurrentAngle;
 
     void Start()
     {
+        originPos = gameObject.transform.localPosition;
+        originAngle = new Vector3(0, transform.eulerAngles.y, transform.eulerAngles.z);
         handling = 0;
         ammoClip = ammoCapacity;
         reloading = false;
@@ -38,6 +44,8 @@ public class GunScript : MonoBehaviour
         }
         normScale = crossHair.transform.localScale;
         currentScale = normScale;
+
+
 
         GameObject.Find("UICANVAS").transform.FindChild("HuD (1)").FindChild("Mag Ammo").GetComponent<Text>().text = ammoClip.ToString();
     }
@@ -55,7 +63,15 @@ public class GunScript : MonoBehaviour
 
     void Update()
     {
-        gameObject.transform.eulerAngles = new Vector3(GameObject.FindObjectOfType<Camera>().gameObject.transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z);
+        offsetCurrentAngle = new Vector3(offsetAngle.x - offsetCurrentAngle.x, offsetAngle.y - offsetCurrentAngle.y, offsetAngle.z - offsetCurrentAngle.z)*Time.deltaTime*20;
+        gameObject.transform.localPosition = originPos + new Vector3(0, 0, -crossHair.transform.localScale.x*(handling/25))/10;
+        originAngle = new Vector3(GameObject.FindObjectOfType<Camera>().gameObject.transform.eulerAngles.x, gameObject.transform.parent.eulerAngles.y, gameObject.transform.parent.eulerAngles.z);
+        Vector3 offsetSETAngle = originAngle + offsetCurrentAngle;
+
+        gameObject.transform.eulerAngles = offsetSETAngle + new Vector3(0, -0.05f, 0);
+
+        offsetAngle -= offsetAngle*2*Time.deltaTime;
+
         if (maxTimer > 0)
         {
             loaded = false;
@@ -82,16 +98,19 @@ public class GunScript : MonoBehaviour
             }
         }
 
-        if (fire && loaded && ammoClip > 0 && !reloading)
+        if (fire && loaded && ammoClip > 0 && !reloading && handling < 250)
         {
             ammoClip--;
             GameObject bullet = prefab;
             bullet = Instantiate(prefab, transform.FindChild("ExitPoint").position, transform.parent.rotation) as GameObject;
             bullet.transform.eulerAngles += new Vector3(GameObject.FindObjectOfType<Camera>().gameObject.transform.eulerAngles.x + prefab.transform.eulerAngles.x, 0, 0);
-            bullet.transform.eulerAngles += new Vector3(generateRandomOffset(), generateRandomOffset(), generateRandomOffset());
+            offsetAngle = new Vector3(generateRandomOffset(), generateRandomOffset(), generateRandomOffset());
+            bullet.transform.eulerAngles += offsetAngle + new Vector3(0, -0.05f, 0);
             bullet.transform.tag = gameObject.transform.tag;
             bullet.GetComponent<BulletScript>().init();
             maxTimer = 1;
+            
+            //gameObject.transform.eulerAngles = originAngle + offsetAngle;
 
             ejectShell();
 
