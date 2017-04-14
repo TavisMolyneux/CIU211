@@ -36,6 +36,11 @@ public class PlayerScript : MonoBehaviour
         //Component References
         body = gameObject.GetComponent<Rigidbody>();
         gun = gameObject.transform.FindChild("Gun").gameObject;
+        gun.GetComponent<GunScript>().fireRate = 24;
+        gun.GetComponent<GunScript>().damage = 5;
+        gun.GetComponent<GunScript>().accuracy = 0.95f;
+        gun.GetComponent<GunScript>().ammoCapacity = 32;
+        gun.GetComponent<GunScript>().init();
 
         ///Manual_Static-Initialization
 		Camera.init();
