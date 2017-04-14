@@ -104,7 +104,7 @@ public class GunScript : MonoBehaviour
             shell.transform.localEulerAngles += new Vector3(0, 0, 90);
             shell.GetComponent<Collider>().enabled = false;
             shell.GetComponent<Rigidbody>().velocity += (shell.transform.forward + shell.transform.right * 0.5f)*1;
-            Destroy(shell, 0.25f);
+            Destroy(shell, 0.75f);
 
             currentScale += new Vector3(damage/100, damage/100, damage/100);
             crossHair.transform.localScale += new Vector3(damage/100, damage/100, damage/100);
