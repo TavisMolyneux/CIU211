@@ -66,7 +66,7 @@ public class GunScript : MonoBehaviour
         offsetCurrentAngle = new Vector3(offsetAngle.x - offsetCurrentAngle.x, offsetAngle.y - offsetCurrentAngle.y, offsetAngle.z - offsetCurrentAngle.z)*Time.deltaTime*20;
         gameObject.transform.localPosition = originPos + new Vector3(0, 0, -crossHair.transform.localScale.x*(handling/25))/10;
         originAngle = new Vector3(GameObject.FindObjectOfType<Camera>().gameObject.transform.eulerAngles.x, gameObject.transform.parent.eulerAngles.y, gameObject.transform.parent.eulerAngles.z);
-        Vector3 offsetSETAngle = originAngle + offsetCurrentAngle*2;
+        Vector3 offsetSETAngle = originAngle + offsetCurrentAngle;
 
         gameObject.transform.eulerAngles = offsetSETAngle + new Vector3(0, -0.05f, 0);
 
