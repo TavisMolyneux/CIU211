@@ -34,6 +34,7 @@ public class PlayerScript : MonoBehaviour
 
         //Components
         gameObject.AddComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+        gameObject.GetComponent<Rigidbody>().isKinematic = true;
 
         //Component References
         body = gameObject.GetComponent<Rigidbody>();
@@ -115,8 +116,8 @@ public class PlayerScript : MonoBehaviour
             }
         }
 
-        body.velocity = new Vector3(duelVelocity[0], body.velocity.y, duelVelocity[1]);
-        body.transform.eulerAngles += new Vector3(0, Input.GetAxis("Mouse X"), 0);
+        //body.velocity = new Vector3(duelVelocity[0], body.velocity.y, duelVelocity[1]);
+        //body.transform.eulerAngles += new Vector3(0, Input.GetAxis("Mouse X"), 0);
         //transform.Rotate(new Vector3(-Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0) * Time.deltaTime * 25);
     }
 

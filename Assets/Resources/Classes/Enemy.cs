@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         targetFound = false;
         setDown = true;
-        range = 25;
+        range = 15;
         shootTimer = 1;
     }
 
