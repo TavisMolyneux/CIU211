@@ -51,8 +51,17 @@ public class BulletScript : MonoBehaviour
         gameObject.GetComponent<Rigidbody>().velocity = gameObject.GetComponent<Rigidbody>().velocity - gameObject.GetComponent<Rigidbody>().velocity*0.25f*Time.deltaTime;
     }
 
-    void OnCollisionEnter()
+    void OnCollisionEnter(Collision other)
     {
+        if(other.gameObject.GetComponent<Enemy>())
+        {
+            other.gameObject.GetComponent<Enemy>().health -= 1;
+        }
+
+        if (other.gameObject.GetComponent<PlayerScript>())
+        {
+            other.gameObject.GetComponent<PlayerScript>().health -= 1;
+        }
         Destroy(gameObject);
     }
 }

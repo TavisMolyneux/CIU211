@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class PlayerScript : MonoBehaviour
     private bool running;
     private float speed;
     private bool moving;
+    public float health = 10;
 
     private Rigidbody body;
     private GameObject gun;
@@ -43,6 +45,15 @@ public class PlayerScript : MonoBehaviour
 
     void Update()
     {
+        if(health <= 0)
+        {
+            Destroy(gameObject);
+        }
+
+        if(health < 10)
+            health += Time.deltaTime * 0.5f;
+        GameObject.Find("UICANVAS").gameObject.transform.FindChild("BloodGlare").GetComponent<Image>().material.color = new Color(1, 1, 1, (((10-health)/10)-0.1f));
+
         RayCasts();
         timers();
 
