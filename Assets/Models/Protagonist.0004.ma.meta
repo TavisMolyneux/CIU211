@@ -1,0 +1,214 @@
+fileFormatVersion: 2
+guid: b70549ff478139d44a9145f5224890e7
+timeCreated: 1493382367
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: ikHandle1
+    100002: ikHandle2
+    100004: L_elbow
+    100006: L_index1
+    100008: L_index2
+    100010: L_index3
+    100012: L_index4
+    100014: L_middle1
+    100016: L_middle2
+    100018: L_middle3
+    100020: L_middle4
+    100022: L_palm
+    100024: L_pinky1
+    100026: L_pinky2
+    100028: L_pinky3
+    100030: L_pinky4
+    100032: L_ring1
+    100034: L_ring2
+    100036: L_ring3
+    100038: L_ring4
+    100040: L_shoulder
+    100042: L_thumb1
+    100044: L_thumb2
+    100046: L_thumb3
+    100048: L_upperarm
+    100050: L_wrist
+    100052: lowerhead
+    100054: neck
+    100056: nurbsCircle1
+    100058: nurbsCircle2
+    100060: nurbsCircle3
+    100062: nurbsCircle4
+    100064: nurbsCircle5
+    100066: nurbsCircle6
+    100068: nurbsCircle7
+    100070: polySurface40
+    100072: //RootNode
+    100074: R_elbow
+    100076: R_index1
+    100078: R_index2
+    100080: R_index3
+    100082: R_index4
+    100084: R_middle1
+    100086: R_middle2
+    100088: R_middle3
+    100090: R_middle4
+    100092: R_palm
+    100094: R_pinky1
+    100096: R_pinky2
+    100098: R_pinky3
+    100100: R_pinky4
+    100102: R_ring1
+    100104: R_ring2
+    100106: R_ring3
+    100108: R_ring4
+    100110: R_shoulder
+    100112: R_thumb1
+    100114: R_thumb2
+    100116: R_thumb3
+    100118: R_upperarm
+    100120: R_wrist
+    100122: root
+    100124: spine1
+    100126: spine2
+    100128: spine3
+    100130: spine4
+    100132: spine5
+    100134: upperhead
+    400000: ikHandle1
+    400002: ikHandle2
+    400004: L_elbow
+    400006: L_index1
+    400008: L_index2
+    400010: L_index3
+    400012: L_index4
+    400014: L_middle1
+    400016: L_middle2
+    400018: L_middle3
+    400020: L_middle4
+    400022: L_palm
+    400024: L_pinky1
+    400026: L_pinky2
+    400028: L_pinky3
+    400030: L_pinky4
+    400032: L_ring1
+    400034: L_ring2
+    400036: L_ring3
+    400038: L_ring4
+    400040: L_shoulder
+    400042: L_thumb1
+    400044: L_thumb2
+    400046: L_thumb3
+    400048: L_upperarm
+    400050: L_wrist
+    400052: lowerhead
+    400054: neck
+    400056: nurbsCircle1
+    400058: nurbsCircle2
+    400060: nurbsCircle3
+    400062: nurbsCircle4
+    400064: nurbsCircle5
+    400066: nurbsCircle6
+    400068: nurbsCircle7
+    400070: polySurface40
+    400072: //RootNode
+    400074: R_elbow
+    400076: R_index1
+    400078: R_index2
+    400080: R_index3
+    400082: R_index4
+    400084: R_middle1
+    400086: R_middle2
+    400088: R_middle3
+    400090: R_middle4
+    400092: R_palm
+    400094: R_pinky1
+    400096: R_pinky2
+    400098: R_pinky3
+    400100: R_pinky4
+    400102: R_ring1
+    400104: R_ring2
+    400106: R_ring3
+    400108: R_ring4
+    400110: R_shoulder
+    400112: R_thumb1
+    400114: R_thumb2
+    400116: R_thumb3
+    400118: R_upperarm
+    400120: R_wrist
+    400122: root
+    400124: spine1
+    400126: spine2
+    400128: spine3
+    400130: spine4
+    400132: spine5
+    400134: upperhead
+    4300000: polySurface40
+    9500000: //RootNode
+    13700000: polySurface40
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
