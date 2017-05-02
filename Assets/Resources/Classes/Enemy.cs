@@ -23,6 +23,9 @@ public class Enemy : MonoBehaviour
 
     void Update ()
     {
+
+        //transform.LookAt(target.transform.position);
+
         if(health < 0)
         {
             Destroy(gameObject);
