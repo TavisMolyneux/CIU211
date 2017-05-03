@@ -18,7 +18,7 @@ public class PlayerScript : MonoBehaviour
     private GameObject gun;
 
 
-	public Image BloodImage;
+
 
 
     void Start ()
@@ -45,7 +45,7 @@ public class PlayerScript : MonoBehaviour
         gun = gameObject.transform.FindChild("WPN_AKM").gameObject;
 
         ///Manual_Static-Initialization
-		Camera.init();
+		//Camera.init();
     }
 
     void Update()
@@ -58,8 +58,8 @@ public class PlayerScript : MonoBehaviour
         if(health < 10)
             health += Time.deltaTime * 0.5f;
 
-		BloodImage.color = new Color(1, 1, 1, (((10-health)/10)-0.1f));
-		//GameObject.Find("UICANVAS").gameObject.transform.FindChild("BloodGlare").GetComponent<Image>().material.color = new Color(1, 1, 1, (((10-health)/10)-0.1f));
+
+		GameObject.Find("UICANVAS").gameObject.transform.FindChild("DamageFlash").GetComponent<Image>().color = new Color(1, 1, 1, (((10-health)/10)-0.1f));
 
         RayCasts();
         timers();

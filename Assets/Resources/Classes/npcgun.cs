@@ -22,7 +22,7 @@ public class npcgun : MonoBehaviour
 
         if(fire && shootTimer <= 0)
         {
-            Instantiate(prefab, transform.position, transform.rotation).GetComponent<Rigidbody>().AddForce(-transform.right*3000);
+			Instantiate(prefab, transform.position, transform.rotation).GetComponent<Rigidbody>().AddForce(transform.forward * 3000);
             shootTimer = 1;
         }
     }

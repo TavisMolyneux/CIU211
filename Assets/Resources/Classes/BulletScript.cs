@@ -53,10 +53,10 @@ public class BulletScript : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        if(other.gameObject.GetComponent<Enemy>())
-        {
-            other.gameObject.GetComponent<Enemy>().health -= 1;
-        }
+//        if(other.gameObject.GetComponent<Enemy>())
+//        {
+//            other.gameObject.GetComponent<Enemy>().health -= 1;
+//        }
 
         if (other.gameObject.GetComponent<PlayerScript>())
         {
